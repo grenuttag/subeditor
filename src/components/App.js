@@ -6,6 +6,7 @@ import CaptionList from "./CaptionList"
 
 export default function App() {
   let [captions, setCaptions] = useState([])
+  let [activeCaption, setActiveCaption] = useState({})
 
   /**
    * Parse an SRT caption file into a JSON object, adding some
@@ -24,6 +25,38 @@ export default function App() {
     }))
 
     setCaptions(parsedCaptions)
+  }
+
+  /**
+   * @todo Document this function
+   * @param {number} id
+   * @param {string} content
+   */
+  function updateCaption(id, content) {
+    let payload = [...captions]
+    payload[id]["text"] = content
+
+    setCaptions(payload)
+  }
+
+  /**
+   * Find the caption that needs to be displayed, and then set that
+   * as the active caption.
+   *
+   * @param {number} currentTime Seconds since video started
+   */
+  function updateActiveCaption(currentTime) {
+    let currentCaption = captions.filter(
+      caption =>
+        currentTime > caption.startInSeconds &&
+        currentTime < caption.endInSeconds
+    )
+
+    // Only update the active caption if there are any
+    // matching captions, otherwise this will throw an error.
+    if (currentCaption.length !== 0) {
+      setActiveCaption(currentCaption[0])
+    }
   }
 
   /**
@@ -52,8 +85,19 @@ export default function App() {
 
   return (
     <div class="app">
-      <Player videoID="gM72NGTCIB4" captions={captions} />
-      <CaptionList captions={captions} />
+      <Player
+        videoID="gM72NGTCIB4"
+        captions={captions}
+        activeCaption={activeCaption}
+        updateActiveCaption={updateActiveCaption}
+      />
+
+      <CaptionList
+        captions={captions}
+        activeCaption={activeCaption}
+        updateActiveCaption={updateActiveCaption}
+        updateCaption={updateCaption}
+      />
     </div>
   )
 }
