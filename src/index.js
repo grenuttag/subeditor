@@ -1,4 +1,4 @@
-import "preact/debug";
+import "preact/debug"
 
-import App from "./components/App";
-export default App;
+import App from "./components/App"
+export default App
