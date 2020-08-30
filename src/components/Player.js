@@ -3,7 +3,7 @@ import YTPlayer from "yt-player";
 
 export default function Player(props) {
   let [activeCaption, setActiveCaption] = useState({});
-  let [player, setPlayer] = useState(undefined);
+  let player = undefined;
 
   function updateActiveCaption(currentTime) {
     let currentCaption = props.captions.filter(
@@ -27,8 +27,6 @@ export default function Player(props) {
     player = new YTPlayer("#youtube-player");
     player.load(props.videoID);
     player.on("timeupdate", (seconds) => timeUpdated(seconds));
-
-    setPlayer(player);
 
     return function cleanup() {
       player.destroy();
