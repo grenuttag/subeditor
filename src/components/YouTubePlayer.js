@@ -23,6 +23,7 @@ export default class YouTubePlayer extends Component {
 
   constructor(props) {
     super(props)
+
     this.player = null
     this.elem = null
 
@@ -91,8 +92,7 @@ export default class YouTubePlayer extends Component {
   }
 
   componentWillUnmount() {
-    this.player.destroy()
-    this.player = null
+    this._destroyPlayer()
   }
 
   render(props) {

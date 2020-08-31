@@ -1,8 +1,8 @@
 const Caption = ({ id, startInSeconds, endInSeconds, text, updateCaption }) => (
   <div class="caption">
     <span class="timestamps">
-      <div class="start">{startInSeconds}</div>
-      <div class="end">{endInSeconds}</div>
+      <input type="number" class="startTimestamp" value={startInSeconds} />
+      <input type="number" class="endTimeStamp" value={endInSeconds} />
     </span>
 
     <textarea
