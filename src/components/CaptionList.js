@@ -1,17 +1,4 @@
-const Caption = ({ id, start, end, text, updateCaption }) => (
-  <div class="caption">
-    <span class="timestamps">
-      <span class="start">{start}</span> &mdash;
-      <span class="end">{end}</span>
-    </span>
-    <textarea
-      name="editable_text"
-      rows="5"
-      value={text}
-      onInput={event => updateCaption(id, event.target.value)}
-    />
-  </div>
-)
+import Caption from "./Caption"
 
 export default function CaptionList(props) {
   return (
