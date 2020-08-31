@@ -79,24 +79,24 @@ export default function App() {
     }
   }
 
-  useEffect(() => {
-    fetchCaptions("/assets/subtitles/defund_the_police.srt")
-  }, [])
+  useEffect(() => fetchCaptions("/assets/subtitles/defund_the_police.srt"), [])
 
   return (
     <div class="app">
-      <Player
-        videoID="9mSpciMOvHU"
-        captions={captions}
-        activeCaption={activeCaption}
-        updateActiveCaption={updateActiveCaption}
-      />
-
       <CaptionList
         captions={captions}
         activeCaption={activeCaption}
         updateActiveCaption={updateActiveCaption}
         updateCaption={updateCaption}
+        currentTime={currentTime}
+      />
+
+      <Player
+        videoID="9mSpciMOvHU"
+        captions={captions}
+        activeCaption={activeCaption}
+        updateActiveCaption={updateActiveCaption}
+        currentTime={currentTime}
       />
     </div>
   )

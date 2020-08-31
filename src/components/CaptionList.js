@@ -1,5 +1,7 @@
 import Caption from "./Caption"
 
+import "../styles/CaptionList.css"
+
 export default function CaptionList(props) {
   return (
     <div class="captions">
@@ -7,6 +9,7 @@ export default function CaptionList(props) {
         <Caption
           key={caption.id}
           updateCaption={props.updateCaption}
+          isActive={props.activeCaption.id === caption.id}
           {...caption}
         />
       ))}

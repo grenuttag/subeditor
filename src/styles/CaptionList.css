@@ -1,0 +1,20 @@
+.captions {
+  height: 800px;
+  min-height: 350px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.captions::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 6px;
+}
+
+.captions::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.captions::-webkit-scrollbar-thumb:hover {
+  background: black;
+}
