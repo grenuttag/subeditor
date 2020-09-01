@@ -1,10 +1,10 @@
 import Caption from "./Caption"
 
-import "../styles/CaptionList.css"
+import "../styles/captions.css"
 
 export default function CaptionList(props) {
   return (
-    <div class="captions">
+    <div class="captions-list">
       {props.captions.map(caption => (
         <Caption
           key={caption.id}

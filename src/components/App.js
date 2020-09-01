@@ -7,6 +7,7 @@ import CaptionList from "./CaptionList"
 export default function App() {
   let [captions, setCaptions] = useState([])
   let [activeCaption, setActiveCaption] = useState({})
+  let [currentTime, setCurrentTime] = useState(0)
 
   /**
    * Parse an SRT caption file into a JSON object, adding some

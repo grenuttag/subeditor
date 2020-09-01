@@ -1,5 +1,3 @@
-import "../styles/Caption.css"
-
 const Caption = ({
   id,
   startInSeconds,
@@ -8,7 +6,7 @@ const Caption = ({
   updateCaption,
   isActive,
 }) => (
-  <div class={`caption ${isActive ? "caption-highlighted" : ""}`}>
+  <div class={isActive ? "caption caption-highlighted" : "caption"}>
     <div class="timestamps">
       <input type="text" class="startTimestamp" value={startInSeconds} />
       <input type="text" class="endTimeStamp" value={endInSeconds} />
